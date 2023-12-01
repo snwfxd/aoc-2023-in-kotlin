@@ -1,21 +1,16 @@
 package day1
 
-typealias DigitExtractor = (string: String, startIndex: Int) -> Int?
-
-class CalibrationExtractor(private val digitExtractors: List<DigitExtractor>) {
-    fun extract(lines: List<String>): Int = lines.sumOf(::extractCalibrationValue)
+class CalibrationExtractor(private val strToDigit: Map<String, Int>) {
+    fun extract(strings: List<String>): Int = strings.sumOf(::extractCalibrationValue)
 
     private fun extractCalibrationValue(string: String): Int {
-        val firstDigit = findFirstDigit(string)
-        val lastDigit = findFirstDigit(string, reverseSearch = true)
+        val firstDigit = extractDigit(string::findAnyOf)
+        val lastDigit = extractDigit(string::findLastAnyOf)
         return firstDigit * 10 + lastDigit
     }
 
-    private fun findFirstDigit(string: String, reverseSearch: Boolean = false): Int {
-        val indicesToSearch = if (!reverseSearch) string.indices else string.indices.reversed()
-        return indicesToSearch.firstNotNullOf { index -> extractDigit(string, index) }
+    private fun extractDigit(searchAnyOf: (Collection<String>) -> Pair<Int, String>?): Int {
+        val (_, foundKey) = searchAnyOf(strToDigit.keys)!!
+        return strToDigit.getValue(foundKey)
     }
-
-    private fun extractDigit(string: String, startIndex: Int): Int? =
-        digitExtractors.firstNotNullOfOrNull { extract -> extract(string, startIndex) }
 }

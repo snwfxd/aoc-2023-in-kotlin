@@ -4,11 +4,11 @@ import println
 import readInput
 
 fun main() {
-    val calibrationExtractor = CalibrationExtractor(listOf(::extractCharDigit))
+    val calibrationExtractor = CalibrationExtractor(charToDigit)
 
     check(calibrationExtractor.extract(readInput("day1/Day01_p1_test")) == 142)
 
     calibrationExtractor.extract(readInput("day1/Day01")).println()
 }
 
-fun extractCharDigit(string: String, index: Int): Int? = string[index].digitToIntOrNull()
+val charToDigit: Map<String, Int> = (0..9).associateBy { it.toString() }
