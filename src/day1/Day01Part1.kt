@@ -11,4 +11,4 @@ fun main() {
     calibrationExtractor.extract(readInput("day1/Day01")).println()
 }
 
-val charToDigit: Map<String, Int> = (0..9).associateBy { it.toString() }
+val charToDigit: Map<String, Int> = (0..9).associateBy(Int::toString)
