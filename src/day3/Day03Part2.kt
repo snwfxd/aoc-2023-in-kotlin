@@ -9,23 +9,22 @@ fun main() {
     part2(readInput("day3/Day03")).println()
 }
 
-private fun part2(table: List<String>): Int = gears(table).sumOf(Gear::ratio)
+private fun part2(table: List<String>): Int = stars(table).mapNotNull(Star::toGear).sumOf(Gear::ratio)
 
-private fun gears(table: List<String>): Collection<Gear> {
-    val starToAdjacentNumbers = buildMap<Cell, MutableList<Int>> {
+private fun stars(table: List<String>): Collection<Star> =
+    buildMap<Cell, MutableList<Int>> {
         for (number in engineNumbers(table)) {
             for (starCell in number.adjacentStars()) {
                 getOrPut(starCell) { mutableListOf() }.add(number.value)
             }
         }
-    }
-    return starToAdjacentNumbers.values.mapNotNull(List<Int>::toGear)
-}
+    }.values
 
 private fun EngineNumber.adjacentStars(): List<Cell> = adjacentCells.filter { it.value == '*' }
 
-private fun List<Int>.toGear(): Gear? = if (size == 2) Gear(this[0], this[1]) else null
+private fun Star.toGear(): Gear? = if (size == 2) Gear(this[0], this[1]) else null
 
-private data class Gear(val number1: Int, val number2: Int) {
-    fun ratio(): Int = number1 * number2
-}
+private fun Gear.ratio(): Int = first * second
+
+private typealias Star = List<Int>
+private typealias Gear = Pair<Int, Int>
