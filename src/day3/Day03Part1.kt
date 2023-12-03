@@ -12,6 +12,6 @@ fun main() {
 private fun part1(table: List<String>): Int =
     engineNumbers(table).filter(EngineNumber::isPartNumber).sumOf(EngineNumber::value)
 
-private fun EngineNumber.isPartNumber(): Boolean = adjacentCells.any { it.value.isSymbol() }
+private fun EngineNumber.isPartNumber(): Boolean = adjacentCells.any(Cell::isSymbol)
 
-private fun Char.isSymbol(): Boolean = this != '.' && !isDigit()
+private fun Cell.isSymbol(): Boolean = value != '.' && !value.isDigit()
