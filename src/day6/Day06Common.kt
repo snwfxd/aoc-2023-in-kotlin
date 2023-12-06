@@ -1,8 +1,8 @@
 package day6
 
 fun Game.waysToWin(): Long {
-    val winTimeFirst = (1..<timeLimit).find(::isWinTime)!!
-    val winTimeLast = (1..<timeLimit).reversed().find(::isWinTime)!!
+    val winTimeFirst = (1..<timeLimit).first(::isWinTime)
+    val winTimeLast = (1..<timeLimit).reversed().first(::isWinTime)
     return winTimeLast - winTimeFirst + 1
 }
 
