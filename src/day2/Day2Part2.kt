@@ -5,9 +5,9 @@ import readInput
 import kotlin.math.max
 
 fun main() {
-    check(part2(readInput("day2/Day02_test")) == 2286)
+    check(part2(readInput("day2/Day2_test")) == 2286)
 
-    part2(readInput("day2/Day02")).println()
+    part2(readInput("day2/Day2")).println()
 }
 
 private fun part2(strings: List<String>): Int = parseGames(strings).map(::calculateMinBag).sumOf(::power)

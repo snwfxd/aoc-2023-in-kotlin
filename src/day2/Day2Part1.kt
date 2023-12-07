@@ -4,9 +4,9 @@ import println
 import readInput
 
 fun main() {
-    check(part1(readInput("day2/Day02_test")) == 8)
+    check(part1(readInput("day2/Day2_test")) == 8)
 
-    part1(readInput("day2/Day02")).println()
+    part1(readInput("day2/Day2")).println()
 }
 
 private fun part1(strings: List<String>): Int = parseGames(strings).filter(::isValid).sumOf(Game::id)

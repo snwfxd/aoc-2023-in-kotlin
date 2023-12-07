@@ -4,9 +4,9 @@ import println
 import readInput
 
 fun main() {
-    check(part2(readInput("day3/Day03_test")) == 467835)
+    check(part2(readInput("day3/Day3_test")) == 467835)
 
-    part2(readInput("day3/Day03")).println()
+    part2(readInput("day3/Day3")).println()
 }
 
 private fun part2(table: List<String>): Int = stars(table).mapNotNull(Star::toGear).sumOf(Gear::ratio)

@@ -5,9 +5,9 @@ import readInput
 import kotlin.math.pow
 
 fun main() {
-    check(part1(readInput("day4/Day04_test")) == 13)
+    check(part1(readInput("day4/Day4_test")) == 13)
 
-    part1(readInput("day4/Day04")).println()
+    part1(readInput("day4/Day4")).println()
 }
 
 private fun part1(strings: List<String>): Int = cards(strings).sumOf(Card::points)

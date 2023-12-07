@@ -6,9 +6,9 @@ import readInput
 fun main() {
     val calibrationExtractor = CalibrationExtractor(charToDigit + wordToDigit)
 
-    check(calibrationExtractor.extract(readInput("day1/Day01_p2_test")) == 281)
+    check(calibrationExtractor.extract(readInput("day1/Day1_p2_test")) == 281)
 
-    calibrationExtractor.extract(readInput("day1/Day01")).println()
+    calibrationExtractor.extract(readInput("day1/Day1")).println()
 }
 
 val wordToDigit: Map<String, Int> = mapOf(

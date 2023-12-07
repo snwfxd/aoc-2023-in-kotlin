@@ -4,9 +4,9 @@ import println
 import readInput
 
 fun main() {
-    check(part1(readInput("day3/Day03_test")) == 4361)
+    check(part1(readInput("day3/Day3_test")) == 4361)
 
-    part1(readInput("day3/Day03")).println()
+    part1(readInput("day3/Day3")).println()
 }
 
 private fun part1(table: List<String>): Int =

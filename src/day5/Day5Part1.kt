@@ -4,9 +4,9 @@ import println
 import readInput
 
 fun main() {
-    check(part1(readInput("day5/Day05_test")) == 35L)
+    check(part1(readInput("day5/Day5_test")) == 35L)
 
-    part1(readInput("day5/Day05")).println()
+    part1(readInput("day5/Day5")).println()
 }
 
 private fun part1(input: List<String>): Long = minLocation(input, seedRanges(input[0]))

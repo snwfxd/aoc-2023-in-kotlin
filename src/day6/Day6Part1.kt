@@ -4,9 +4,9 @@ import println
 import readInput
 
 fun main() {
-    check(part1(readInput("day6/Day06_test")) == 288L)
+    check(part1(readInput("day6/Day6_test")) == 288L)
 
-    part1(readInput("day6/Day06")).println()
+    part1(readInput("day6/Day6")).println()
 }
 
 private fun part1(input: List<String>): Long {
