@@ -10,8 +10,3 @@ fun main() {
 }
 
 private fun part1(strings: List<String>): Int = strings.map(String::toInts).sumOf(::next)
-
-private fun next(numbers: List<Int>): Int {
-    val ends = diffs(numbers).map { it.last() }
-    return ends.sum()
-}
